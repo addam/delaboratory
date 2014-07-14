@@ -25,7 +25,7 @@ wxString getFileType(const std::string& t)
 {
     if (t == "image")
     {
-        return _T("TIFF / JPEG (*.tiff;*.tif;*.jpeg;*.jpg) | ;*.tiff;*.tif;*.jpeg;*.jpg");
+        return _T("TIFF / JPEG (*.tiff;*.tif;*.jpeg;*.jpg) | ;*.tiff;*.tif;*.jpeg;*.jpg;*.JPEG;*.JPG");
     }
     if (t == "raw")
     {
@@ -37,7 +37,7 @@ wxString getFileType(const std::string& t)
     }
     if (t == "jpeg")
     {
-        return _T("JPEG (*.jpeg;*.jpg) | ;*.jpeg;*.jpg");
+        return _T("JPEG (*.jpeg;*.jpg) | ;*.jpeg;*.jpg;*.JPEG;*.JPG");
     }
     if (t == "delab")
     {
