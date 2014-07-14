@@ -288,7 +288,7 @@ void deMainFrame::onOpenImage(wxCommandEvent& WXUNUSED(event))
     std::string f = getOpenFile(this, "load source image", "image", openDirectory);
     if (!f.empty())
     {
-        openDirectory = getPath(f);
+        saveDirectory = openDirectory = getPath(f);
         project.openImage(f, false, false, false);
     }        
 }
@@ -298,7 +298,7 @@ void deMainFrame::onOpenRawImageProPhoto(wxCommandEvent& WXUNUSED(event))
     std::string f = getOpenFile(this, "load source image", "raw", openDirectory);
     if (!f.empty())
     {
-        openDirectory = getPath(f);
+        saveDirectory = openDirectory = getPath(f);
         project.openImage(f, true, false, false);
     }        
 }
@@ -308,7 +308,7 @@ void deMainFrame::onOpenRawImageRGB(wxCommandEvent& WXUNUSED(event))
     std::string f = getOpenFile(this, "load source image", "raw", openDirectory);
     if (!f.empty())
     {
-        openDirectory = getPath(f);
+        saveDirectory = openDirectory = getPath(f);
         project.openImage(f, true, true, false);
     }        
 }
@@ -318,7 +318,7 @@ void deMainFrame::onOpenRawImageProPhotoAB(wxCommandEvent& WXUNUSED(event))
     std::string f = getOpenFile(this, "load source image", "raw", openDirectory);
     if (!f.empty())
     {
-        openDirectory = getPath(f);
+        saveDirectory = openDirectory = getPath(f);
         project.openImage(f, true, false, true);
     }        
 }
@@ -328,7 +328,7 @@ void deMainFrame::onOpenRawImageRGBAB(wxCommandEvent& WXUNUSED(event))
     std::string f = getOpenFile(this, "load source image", "raw", openDirectory);
     if (!f.empty())
     {
-        openDirectory = getPath(f);
+        saveDirectory = openDirectory = getPath(f);
         project.openImage(f, true, true, true);
     }        
 }
@@ -537,7 +537,7 @@ void deMainFrame::onExportAll(wxCommandEvent& event)
 
 void deMainFrame::onExportTIFF(wxCommandEvent& event)
 {
-    std::string f = getSaveFile(this, "export TIFF", "tiff", saveDirectory);
+    std::string f = getSaveFile(this, "export TIFF", "tiff", saveDirectory, imageName);
 
     if (!f.empty())
     {
@@ -554,7 +554,7 @@ void deMainFrame::onExportTIFF(wxCommandEvent& event)
 
 void deMainFrame::onExportJPG(wxCommandEvent& event)
 {
-    std::string f = getSaveFile(this, "export JPG", "jpg", saveDirectory);
+    std::string f = getSaveFile(this, "export JPG", "jpg", saveDirectory, imageName);
 
     if (!f.empty())
     {

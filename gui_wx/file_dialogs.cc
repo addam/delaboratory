@@ -48,15 +48,15 @@ wxString getFileType(const std::string& t)
 }
 
 
-std::string getSaveFile(wxWindow* parent, const std::string& info, const std::string& t, const std::string& dir)
+std::string getSaveFile(wxWindow* parent, const std::string& info, const std::string& t, const std::string& dir, const std::string& defaultName)
 {
     logInfo("getSaveFile info: " + info + " t: " + t + " dir: " + dir);
 
     wxString type = getFileType(t);
-
     wxString directory = str2wx(dir);
+    wxString fileName = str2wx(defaultName);
 
-    wxFileDialog saveFileDialog(parent, wxString::FromAscii(info.c_str()), directory, _T(""), type, wxFD_SAVE);
+    wxFileDialog saveFileDialog(parent, wxString::FromAscii(info.c_str()), directory, fileName, type, wxFD_SAVE);
 
     if (saveFileDialog.ShowModal() == wxID_CANCEL)
     {
