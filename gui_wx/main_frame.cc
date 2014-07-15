@@ -489,7 +489,11 @@ void deMainFrame::onHistogramEvent(wxCommandEvent& event)
 
 void deMainFrame::updateTitle()
 {
-    std::string s = imageName + " " + str(imageSize.getW()) + "x" + str(imageSize.getH()) + " - " + getApplicationName() + " " + getVersion() + " " + getCopyright();
+    std::string s;
+    if (!imageName.empty())
+        s = imageName + " (" + str(imageSize.getW()) + "x" + str(imageSize.getH()) + ") - Delaboratoratory";
+    else
+        s = "Delaboratory";
 
     SetTitle(str2wx(s));
 }
